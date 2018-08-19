@@ -60,7 +60,7 @@ export class RegisterPage {
     // }
     this.ngFireAuth.auth.createUserWithEmailAndPassword( this.registration.email, this.registration.pwd1 )
     .then( rsp => this.registerSuccess(rsp) )
-    .catch( err => this.displayAlert("Registration Error", err ) )
+    .catch( err => this.displayAlert("Registration Error", String(err) ) )
     ;
   }
 
