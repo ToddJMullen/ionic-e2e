@@ -15,10 +15,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  regPage:any;
+  registerPage:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.regPage = "RegisterPage"; 
+    this.registerPage = "RegisterPage"; 
   }
 
   ionViewDidLoad() {
