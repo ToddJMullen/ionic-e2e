@@ -1,18 +1,23 @@
-<!--
-  Generated template for the LoginPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>login</ion-title>
-  </ion-navbar>
-
+    <ion-toolbar color="light">
+      <img src="assets/img/wired-brain-coffee-logo.png" class="logo">
+    </ion-toolbar>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
+
+  <ion-toolbar>
+    <ion-title>Sign In</ion-title>
+  </ion-toolbar>
+
+  <button ion-button color="secondary">Sign In</button>
+
+  <p>Register For Rewards</p>
+
+  <button ion-button color="danger"
+          [navPush]="regPage">Create your Account</button>
 
 </ion-content>
