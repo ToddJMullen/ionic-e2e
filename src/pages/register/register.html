@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>register</ion-title>
+    <ion-title>Create Your WiredUp Account</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,4 +15,21 @@
 
 <ion-content padding>
 
+    <ion-item>
+      <ion-label color="danger" floating >Email Address</ion-label>
+      <ion-input [(ngModel)]="registration.email" type="email" name="email" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label color="danger" floating >Password</ion-label>
+        <ion-input [(ngModel)]="registration.pwd1" type="password" name="pwd1" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="danger" floating >Confirm Password</ion-label>
+      <ion-input [(ngModel)]="registration.pwd2" type="password" name="pwd2" ></ion-input>
+    </ion-item>
+     
+    <p>Create your account to track your points and follow events.</p>
+
+    <button (click)="registerAccount()" color="danger" ion-button full>Create</button>
 </ion-content>
