@@ -16,6 +16,7 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
 //pages
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { RewardServiceProvider } from '../providers/reward-service/reward-service';
 
 
 
@@ -50,7 +51,8 @@ export const  firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserServiceProvider
-    ,IonicStorageModule
+    ,IonicStorageModule,
+    RewardServiceProvider
   ]
 })
 export class AppModule {}

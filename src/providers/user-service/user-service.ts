@@ -6,6 +6,8 @@ import * as firebase from "firebase/app";
 import { Storage } from "@ionic/storage";
 import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
 
+import { RewardServiceProvider } from '../reward-service/reward-service';
+
 /*
   Generated class for the UserServiceProvider provider.
 
@@ -25,6 +27,7 @@ export class UserServiceProvider {
     ,public ngFireAuth: AngularFireAuth
     ,public storage: Storage
     ,public ngFireDb: AngularFireDatabase
+    ,public rewards: RewardServiceProvider
   ) {
     this.items = ngFireDb.list("/users");
   }
@@ -99,7 +102,7 @@ export class UserServiceProvider {
       creation: userData.creation
       ,lastLogin: new Date().toLocaleString()
       ,rewardCount: userData.rewardCount//managed by rewards service
-      ,logins: ++userData.logins
+      ,logins: userData.logins
       ,id: userData.id
     };
     this.items.update( newData.id, {
@@ -109,6 +112,7 @@ export class UserServiceProvider {
     });
     return this.storageControl("set", user, newData );
   }
+
 
   login( user, password ){
     return this.ngFireAuth.auth.signInWithEmailAndPassword( user, password )
@@ -120,8 +124,12 @@ export class UserServiceProvider {
               .then( addRsp => this.displayAlert(`Welcome ${user.username}`, "New Account Saved") );
             }
             else {//they just logged back in
-              this.updateUser( user, stored )
-              .then( updated => console.log(`User data updated:`, updated ) )
+              this.rewards.rewardsCheck( user, stored )
+              .then( rewardedUser => {
+
+                this.updateUser( user, rewardedUser )
+                .then( updated => console.log(`User data updated:`, updated ) )
+              })
             }
           })
           this.success = true;
