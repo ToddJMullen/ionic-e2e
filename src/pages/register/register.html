@@ -22,11 +22,13 @@
 
     <ion-item>
         <ion-label color="danger" floating >Password (test123)</ion-label>
-        <ion-input [(ngModel)]="registration.pwd1" type="password" name="pwd1" ></ion-input>
+        <ion-input [(ngModel)]="registration.pwd1" type="password" name="pwd1"
+                  (keyup.enter)="registerAccount()" ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="danger" floating >Confirm Password</ion-label>
-      <ion-input [(ngModel)]="registration.pwd2" type="password" name="pwd2" ></ion-input>
+      <ion-input [(ngModel)]="registration.pwd2" type="password" name="pwd2"
+                  (keyup.enter)="registerAccount()" ></ion-input>
     </ion-item>
      
     <p>Create your account to track your points and follow events.</p>

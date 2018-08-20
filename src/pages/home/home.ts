@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 
+
+import { UserServiceProvider } from '../../providers/user-service/user-service';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -21,6 +24,7 @@ export class HomePage {
   constructor(
     public navCtrl: NavController
     ,public ngFireAuth: AngularFireAuth
+    ,public userService: UserServiceProvider
   ) {
     this.loginPage = "LoginPage";
 
@@ -33,9 +37,11 @@ export class HomePage {
 
 
   logout(){
-    this.ngFireAuth.auth.signOut()
-    .then( rsp => this.loggedIn = "" )
-    .catch( err => console.log(err) );
+    this.userService.logout();
+    this.loggedIn = "";
+    // this.ngFireAuth.auth.signOut()
+    // .then( rsp => this.loggedIn = "" )
+    // .catch( err => console.log(err) );
   }
 
 }

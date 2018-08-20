@@ -7,31 +7,41 @@
 </ion-header>
 
 
-<ion-content >
+<ion-content padding >
 
-  <ion-toolbar>
-    <ion-title>Sign In</ion-title>
-  </ion-toolbar>
-
-  <ion-item>
-    <ion-label color="danger" floating >Email Address</ion-label>
-    <ion-input [(ngModel)]="login.email" type="email" name="email" ></ion-input>
-  </ion-item>
-
-  <ion-item>
-      <ion-label color="danger" floating >Password (test123)</ion-label>
-      <ion-input [(ngModel)]="login.pwd" type="password" name="pwd" ></ion-input>
-  </ion-item>
-   
-  <button (click)="doLogin()" color="danger" ion-button full>Sign In</button>
+  <ion-card >
+    <ion-card-content>
+        <!-- <ion-toolbar>
+            <ion-title>Sign In</ion-title>
+          </ion-toolbar> -->
+        
+          <ion-item>
+            <ion-label color="danger" floating >Email Address</ion-label>
+            <ion-input [(ngModel)]="login.email" type="email" name="email"
+                        (keyup.enter)="doLogin()" ></ion-input>
+          </ion-item>
+        
+          <ion-item>
+              <ion-label color="danger" floating >Password (test123)</ion-label>
+              <ion-input [(ngModel)]="login.pwd" type="password" name="pwd"
+                        (keyup.enter)="doLogin()" ></ion-input>
+          </ion-item>
+           
+          <button (click)="doLogin()" color="danger" ion-button full>Sign In</button>
+          
+    </ion-card-content>
+  </ion-card>
   
-  <p>Don't have an account? Create your account to track your points and follow events.</p>
+  <ion-card >
+    <ion-card-content>
 
-  <button ion-button color="secondary">Sign In</button>
+      <p>Don't have an account? Create your account to follow events, track your points, & earn rewards.</p>
 
-  <p>Register For Rewards</p>
-
-  <button ion-button color="danger"
-          [navPush]="registerPage">Create your Account</button>
+      <p>Register For Rewards</p>
+      
+      <button ion-button color="danger"
+      [navPush]="registerPage">Create your Account Now</button>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

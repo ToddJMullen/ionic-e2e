@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { HomePage } from '../home/home';
+import { UserServiceProvider } from '../../providers/user-service/user-service';
 
 /**
  * Generated class for the LoginPage page.
@@ -21,13 +22,14 @@ export class LoginPage {
 
   login = {
     email: "test@test.com"
-    ,pwd: ""
+    ,pwd: "test123"
   }
 
   constructor(
     public navCtrl: NavController
     ,public navParams: NavParams
     ,public ngFireAuth: AngularFireAuth
+    ,public userService: UserServiceProvider
   ) {
     this.registerPage = "RegisterPage"; 
   }
@@ -38,15 +40,27 @@ export class LoginPage {
 
   doLogin(){
     if( !this.login.email || this.login.pwd.length < 6 ){
-      alert("Bad login");//temp since he'll probably make the alert util app wide
-      //I don't want to implement the same solution in a different way and create conflicts
+      this.userService.displayAlert("Login Error","Missing email or password!");
       return;
     }
-    this.ngFireAuth.auth.signInWithEmailAndPassword( this.login.email, this.login.pwd )
-    .then( user => {
-      this.navCtrl.push( HomePage );
-    })
-    .catch( err => console.error(err) );
+
+    this.userService.login( this.login.email, this.login.pwd )
+      .then( rsp => {
+        if( this.userService.success ){
+          this.navCtrl.push( HomePage );
+        }
+        else {
+          this.login.email = "";
+          this.login.pwd = "";
+          this.userService.displayAlert("Login Failed", "Your email & password combination was not found.")
+        }
+      })
+      ;
+    // this.ngFireAuth.auth.signInWithEmailAndPassword( this.login.email, this.login.pwd )
+    // .then( user => {
+    //   this.navCtrl.push( HomePage );
+    // })
+    // .catch( err => console.error(err) );
   }
 
 }
