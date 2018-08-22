@@ -24,7 +24,7 @@
     <ion-card>
       <img src="{{menu.pic}}" alt="{{menu.title}}">
       <div class="card-title" 
-          [navPush]=menu.pushPage >{{menu.title}}</div>
+          (click)="myPagePush(menu.pushPage)" >{{menu.title}}</div>
     </ion-card>
   </ion-list>
 

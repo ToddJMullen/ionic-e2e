@@ -21,6 +21,8 @@ export class UserServiceProvider {
 
   success:boolean;//tracks login success
 
+  user:string;
+
 
   constructor(
     public alertCtrl: AlertController
@@ -47,7 +49,10 @@ export class UserServiceProvider {
   logout(){
     //this.storageControl("delete");
     this.ngFireAuth.auth.signOut()
-    .then( rsp => this.displayAlert("You have been logged out.", "Where you going?") )
+    .then( rsp => {
+      this.displayAlert("You have been logged out.", "Where you going?");
+      this.success = false;
+    } )
     .catch( err => console.error("UserService::logout().catch()", err) );
   }
 
