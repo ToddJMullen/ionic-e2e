@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UserServiceProvider } from '../../providers/user-service/user-service';
 
 /**
  * Generated class for the AccountPage page.
@@ -13,13 +14,36 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-account',
   templateUrl: 'account.html',
 })
-export class AccountPage {
+export class AccountPage implements OnInit{
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  accountUser: string;
+  userInfo: any[] = [];
+  rewardInfo: any[] = [];
+
+  constructor(
+    public navCtrl: NavController
+    ,public navParams: NavParams
+    ,public userService: UserServiceProvider
+  ) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AccountPage');
+  ionViewCanEnter():boolean {
+    return this.userService.success;
   }
+
+
+  ngOnInit(){
+    this.accountUser = this.userService.user;
+    this.userService.storageControl( "get", this.accountUser )
+    .then( userData => {
+      this.userInfo = userData
+    });
+    this.userService.storageControl( "get", `${this.accountUser}-rewards` )
+    .then( rewardData => {
+      this.rewardInfo = rewardData;
+    })
+
+  }
+
 
 }
