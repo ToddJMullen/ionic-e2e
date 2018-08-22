@@ -7,12 +7,28 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>rewardModal</ion-title>
+    <ion-title>Congratulations!</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
+
+  <ion-card>
+    
+    <div class="text-align">
+      <p class="text-format">You received a reward of</p>
+      <p class="text-format">{{ displayParam | currency:"USD":true }} </p>
+      <p class="text-format">You can redeem your reward on you next order.</p>
+    </div>
+    <img src="assets/img/reward.jpg" />
+  </ion-card>
 
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="secondary">
+    <button (click)="dismiss()" ion-button clear class="text-format"> Close</button>
+  </ion-toolbar>
+</ion-footer>

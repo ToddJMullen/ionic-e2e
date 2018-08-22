@@ -4,7 +4,10 @@ import { Injectable } from '@angular/core';
 import { Storage } from "@ionic/storage";
 
 import "rxjs/add/operator/map";
-import { Promise } from "promise-polyfill";
+// import { Promise } from "promise-polyfill";
+
+import { ModalController } from 'ionic-angular';
+import { RewardModalPage } from "../../pages/reward-modal/reward-modal"; 
 
 /*
   Generated class for the RewardServiceProvider provider.
@@ -24,6 +27,7 @@ export class RewardServiceProvider {
   constructor(
     // public http: HttpClient
     public storage: Storage
+    ,public modalCtrl: ModalController
   ) {
     console.log('Hello RewardServiceProvider Provider');
   }
@@ -38,7 +42,7 @@ export class RewardServiceProvider {
         userData.rewardCount = firstRewards;
         resolve( userData );
       }
-      else if( userData.logins % 10 == 0 ){
+      else if( userData.logins % 7 == 0 ){
         let newRewards = this.rewardChance( user, userData.rewardCount );
         userData.rewardCount = newRewards;
         resolve( userData );
@@ -59,7 +63,7 @@ export class RewardServiceProvider {
     }
     else {
       let num = 1 + Math.round(Math.random() * 100)
-      if( num >= 50 ){
+      if( num >= 20 ){//I upped it to an 80% reward chance
         rewardCount++;
         this.generateReward( user, rewardCount );
         return rewardCount;
@@ -72,6 +76,7 @@ export class RewardServiceProvider {
 
 
   generateReward( user, rewardCount ){
+    console.log("generateReward()", user, rewardCount );
     let l   = this.rewardList.length
     ,idx    = Math.round(Math.random() * l)
     ,reward = this.rewardList[idx]
@@ -86,17 +91,23 @@ export class RewardServiceProvider {
       if( !result ){
         this.rewards.push( rewardObj );
         this.storage.set(`${user}-rewards`, this.rewards )
-        .then( res => console.log(`User ${user} rewarded:`, this.rewards) );
+        .then( res => this.displayReward(reward) );
       }
       else {
         this.rewards = result;
         this.rewards.push( rewardObj );
         this.storage.set(`${user}-rewards`, this.rewards )
-        .then( res => console.log(`User ${user} rewarded:`, this.rewards) );
+        .then( res => this.displayReward(reward) );
       }
     })
     ;
-
   }
+
+  displayReward( amount ){
+    console.log(`Reward ${amount}`)
+    let theModal = this.modalCtrl.create( RewardModalPage, {"rewardParam": amount} );
+    theModal.present();
+  }
+
 
 }

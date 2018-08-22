@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the RewardModalPage page.
@@ -15,11 +15,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RewardModalPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  displayParam:number;
+
+  constructor(
+    public navCtrl: NavController
+    ,public navParams: NavParams
+    ,public viewCtrl: ViewController
+  ) {
+
+    this.displayParam = navParams.get("rewardParam");
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RewardModalPage');
+  }
+
+  dismiss(){
+    this.viewCtrl.dismiss();//will remove the modal from the view
   }
 
 }
