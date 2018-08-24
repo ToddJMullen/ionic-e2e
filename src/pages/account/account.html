@@ -6,13 +6,48 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>account</ion-title>
+  <ion-toolbar color="secondary">
+    <img src="assets/img/wired-brain-coffee-logo.png" class="logo">
+  </ion-toolbar>
+  <ion-navbar color="secondary">
+    Account Information
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
+
+  <ion-item>
+    <ion-avatar>
+      <ion-icon name="contacts" item-start></ion-icon>
+      <h1>{{accountUser}}</h1>
+    </ion-avatar>
+  </ion-item>
+
+  <ion-list>
+      <ion-item >
+        <ion-icon name="calendar" item-start></ion-icon>
+        Registered: {{userInfo.creation}}
+      </ion-item>
+      <ion-item >
+        <ion-icon name="cash" item-start></ion-icon>
+        Logged In: &times; {{userInfo.logins}}
+      </ion-item>
+      <ion-item >
+        <ion-icon name="cafe" item-start></ion-icon>
+        Rewards Earned: <ion-badge color="secondary">{{userInfo.rewardCount}}</ion-badge>
+      </ion-item>
+    </ion-list>
+    
+    <ion-list>
+      <ion-list-header>
+        Rewards:
+      </ion-list-header>
+
+      <ion-item *ngFor="let reward of rewardInfo" class="myRewards">
+        {{reward.amount | currency:"USD":true}} off your order!
+      </ion-item>
+  </ion-list>
 
 </ion-content>

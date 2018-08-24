@@ -36,10 +36,12 @@ export class AccountPage implements OnInit{
     this.accountUser = this.userService.user;
     this.userService.storageControl( "get", this.accountUser )
     .then( userData => {
+      console.log(`Got user info: ${this.accountUser}:`, userData );
       this.userInfo = userData
     });
     this.userService.storageControl( "get", `${this.accountUser}-rewards` )
     .then( rewardData => {
+      console.log(`Got reward info: ${this.accountUser}:`, rewardData );
       this.rewardInfo = rewardData;
     })
 
