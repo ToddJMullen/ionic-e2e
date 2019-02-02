@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
+// import { FCM } from '@ionic-native/fcm';
 
 
 import { UserServiceProvider } from '../../providers/user-service/user-service';
@@ -25,8 +26,8 @@ export class HomePage implements OnInit {
     public navCtrl: NavController
     ,public ngFireAuth: AngularFireAuth
     ,public userService: UserServiceProvider
-  ) {
-  }
+    // ,public fcm:FCM
+  ) {  }
 
   ngOnInit(){
 
@@ -36,7 +37,8 @@ export class HomePage implements OnInit {
       if( creds ){
         this.loggedIn = this.userService.user = creds.email;
       }
-    })
+    });
+    // this.initFcm();
   }
 
 
@@ -49,6 +51,20 @@ export class HomePage implements OnInit {
     })
   }
 
+  // initFcm(){
+  //   this.fcm.onNotification().subscribe( data => {
+  //     if( data.wasTapped ){
+  //       console.log(`Tray notification tap data:`, data );
+  //     }
+  //     else {
+  //       console.log(`Notification data while in app:`, data );
+  //       this.userService.displayAlert( "Sent", String(data) );
+  //     }
+  //   }
+  //   , err => {
+  //     console.error(`Problem in initFcm()`, err );
+  //   });
+  // }
 
   logout(){
     this.userService.logout();

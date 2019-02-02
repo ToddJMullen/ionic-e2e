@@ -1,0 +1,182 @@
+> ionic-app-scripts serve --address 0.0.0.0 --port 8101 --livereload-port 35730 --dev-logger-port 53704 --nobrowser --iscordovaserve --platform android --target cordova
+[app-scripts] [01:10:51]  ionic-app-scripts 3.1.11 
+[app-scripts] 2018-09-01T05:10:51.137Z tinylr:server Configuring HTTP server
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:application set "x-powered-by" to true
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:application set "etag" to 'weak'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:application set "etag fn" to [Function: generateETag]
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:application set "env" to 'development'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:application set "query parser" to 'extended'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:application set "query parser fn" to [Function: parseExtendedQueryString]
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:application set "subdomain offset" to 2
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:application set "trust proxy" to false
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:application set "trust proxy fn" to [Function: trustNone]
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:application booting in development mode
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:application set "view" to [Function: View]
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:application set "views" to '/home/todd/WebDev/Pluralsight/Ionic/ionic-e2e/views'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:application set "jsonp callback name" to 'callback'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:application set "serveConfig" to { httpPort: 8101, host: '0.0.0.0', hostBaseUrl: 'http://localhost:8101', rootDir: '/home/todd/WebDev/Pluralsight/Ionic/ionic-e2e', wwwDir: '/home/todd/WebDev/Pluralsight/Ionic/ionic-e2e/www', buildDir: '/home/todd/WebDev/Pluralsight/Ionic/ionic-e2e/www/build', isCordovaServe: true, launchBrowser: false, launchLab: false, browserToLaunch: null, useLiveReload: true, liveReloadPort: 35730, notificationPort: 53704, useServerLogs: false, useProxy: true, notifyOnConsoleLog: false, devapp: false }
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router use '/' query
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router use '/' expressInit
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:route new '/'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:route get '/'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router use '/' serveStatic
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router use '/__ion-dev-server' serveStatic
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/__ion-dev-server'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router use '/ionic-lab/static' serveStatic
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/ionic-lab/static'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:route new '/ionic-lab'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/ionic-lab'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:route get '/ionic-lab'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:route new '/ionic-lab/api/v1/cordova'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/ionic-lab/api/v1/cordova'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:route get '/ionic-lab/api/v1/cordova'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:route new '/ionic-lab/api/v1/app-config'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/ionic-lab/api/v1/app-config'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:route get '/ionic-lab/api/v1/app-config'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:route new '/cordova.js'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/cordova.js'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:route get '/cordova.js'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:route get '/cordova.js'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:route new '/cordova_plugins.js'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/cordova_plugins.js'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:route get '/cordova_plugins.js'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:route new '/plugins/*'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/plugins/*'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:route get '/plugins/*'
+[app-scripts] Sat, 01 Sep 2018 05:10:51 GMT express:router:layer new '/'
+[app-scripts] [01:10:51]  watch started ... 
+[app-scripts] [01:10:51]  build dev started ... 
+[app-scripts] [01:10:51]  clean started ... 
+[app-scripts] [01:10:51]  clean finished in 5 ms 
+[app-scripts] [01:10:51]  copy started ... 
+[app-scripts] [01:10:51]  deeplinks started ... 
+[app-scripts] [01:10:51]  deeplinks finished in 53 ms 
+[app-scripts] [01:10:51]  transpile started ... 
+[app-scripts] [01:10:54]  transpile finished in 3.04 s 
+[app-scripts] [01:10:54]  preprocess started ... 
+[app-scripts] [01:10:54]  preprocess finished in less than 1 ms 
+[app-scripts] [01:10:54]  webpack started ... 
+[app-scripts] [01:10:54]  copy finished in 3.29 s 
+[app-scripts] [01:11:00]  webpack finished in 6.47 s 
+[app-scripts] [01:11:00]  sass started ... 
+[app-scripts] Without `from` option PostCSS could generate wrong source map and will not find Browserslist config. Set it to CSS file path or to `undefined` to prevent this warning.
+[app-scripts] [01:11:01]  sass finished in 1.08 s 
+[app-scripts] [01:11:01]  postprocess started ... 
+[app-scripts] [01:11:01]  postprocess finished in 6 ms 
+[app-scripts] [01:11:01]  lint started ... 
+[app-scripts] [01:11:01]  build dev finished in 10.80 s 
+[app-scripts] [01:11:02]  watch ready in 10.86 s 
+
+[INFO] Development server running!
+       
+       Local: http://localhost:8101
+       External: http://192.168.43.136:8101
+       
+       Use Ctrl+C to quit this process
+
+> cordova run android --verbose
+[cordova]  No scripts found for hook "before_run".
+[cordova]  No scripts found for hook "before_prepare".
+[cordova]  Checking config.xml and package.json for saved platforms that haven't been added to the project
+[cordova]  Config.xml and package.json platforms are the same. No pkg.json modification.
+[cordova]  Package.json and config.xml platforms are different. Updating config.xml with most current list of platforms.
+[cordova]  PlatformApi successfully found for platform android
+[cordova]  Android Studio project detected
+[cordova]  Checking config.xml for saved plugins that haven't been added to the project
+[cordova]  Checking for any plugins added to the project that have not been installed in android platform
+[cordova]  No differences found between plugins added to project and installed in android platform. Continuing...
+[cordova]  Generating platform-specific config.xml from defaults for android at /home/todd/WebDev/Pluralsight/Ionic/ionic-e2e/platforms/android/app/src/main/res/xml/config.xml
+[cordova]  Merging project's config.xml into platform-specific android config.xml
+[cordova]  Merging and updating files from [www, platforms/android/platform_www] to platforms/android/app/src/main/assets/www
+[cordova]    copy  www/assets/fonts/Raleway-Bold.ttf platforms/android/app/src/main/assets/www/assets/fonts/Raleway-Bold.ttf (updated file)
+[cordova]    copy  www/assets/fonts/Raleway-Medium.ttf platforms/android/app/src/main/assets/www/assets/fonts/Raleway-Medium.ttf (updated file)
+[cordova]    copy  www/assets/fonts/Raleway-Regular.ttf platforms/android/app/src/main/assets/www/assets/fonts/Raleway-Regular.ttf (updated file)
+[cordova]    copy  www/assets/fonts/ionicons.eot platforms/android/app/src/main/assets/www/assets/fonts/ionicons.eot (updated file)
+[cordova]    copy  www/assets/fonts/ionicons.scss platforms/android/app/src/main/assets/www/assets/fonts/ionicons.scss (updated file)
+[cordova]    copy  www/assets/fonts/ionicons.svg platforms/android/app/src/main/assets/www/assets/fonts/ionicons.svg (updated file)
+[cordova]    copy  www/assets/fonts/ionicons.ttf platforms/android/app/src/main/assets/www/assets/fonts/ionicons.ttf (updated file)
+[cordova]    copy  www/assets/fonts/ionicons.woff platforms/android/app/src/main/assets/www/assets/fonts/ionicons.woff (updated file)
+[cordova]    copy  www/assets/fonts/ionicons.woff2 platforms/android/app/src/main/assets/www/assets/fonts/ionicons.woff2 (updated file)
+[cordova]    copy  www/assets/fonts/noto-sans-bold.ttf platforms/android/app/src/main/assets/www/assets/fonts/noto-sans-bold.ttf (updated file)
+[cordova]    copy  www/assets/fonts/noto-sans-bold.woff platforms/android/app/src/main/assets/www/assets/fonts/noto-sans-bold.woff (updated file)
+[cordova]    copy  www/assets/fonts/noto-sans-regular.ttf platforms/android/app/src/main/assets/www/assets/fonts/noto-sans-regular.ttf (updated file)
+[cordova]    copy  www/assets/fonts/noto-sans-regular.woff platforms/android/app/src/main/assets/www/assets/fonts/noto-sans-regular.woff (updated file)
+[cordova]    copy  www/assets/fonts/noto-sans.scss platforms/android/app/src/main/assets/www/assets/fonts/noto-sans.scss (updated file)
+[cordova]    copy  www/assets/fonts/roboto-bold.ttf platforms/android/app/src/main/assets/www/assets/fonts/roboto-bold.ttf (updated file)
+[cordova]    copy  www/assets/fonts/roboto-bold.woff platforms/android/app/src/main/assets/www/assets/fonts/roboto-bold.woff (updated file)
+[cordova]    copy  www/assets/fonts/roboto-bold.woff2 platforms/android/app/src/main/assets/www/assets/fonts/roboto-bold.woff2 (updated file)
+[cordova]    copy  www/assets/fonts/roboto-light.ttf platforms/android/app/src/main/assets/www/assets/fonts/roboto-light.ttf (updated file)
+[cordova]    copy  www/assets/fonts/roboto-light.woff platforms/android/app/src/main/assets/www/assets/fonts/roboto-light.woff (updated file)
+[cordova]    copy  www/assets/fonts/roboto-light.woff2 platforms/android/app/src/main/assets/www/assets/fonts/roboto-light.woff2 (updated file)
+[cordova]    copy  www/assets/fonts/roboto-medium.ttf platforms/android/app/src/main/assets/www/assets/fonts/roboto-medium.ttf (updated file)
+[cordova]    copy  www/assets/fonts/roboto-medium.woff platforms/android/app/src/main/assets/www/assets/fonts/roboto-medium.woff (updated file)
+[cordova]    copy  www/assets/fonts/roboto-medium.woff2 platforms/android/app/src/main/assets/www/assets/fonts/roboto-medium.woff2 (updated file)
+[cordova]    copy  www/assets/fonts/roboto-regular.ttf platforms/android/app/src/main/assets/www/assets/fonts/roboto-regular.ttf (updated file)
+[cordova]    copy  www/assets/fonts/roboto-regular.woff platforms/android/app/src/main/assets/www/assets/fonts/roboto-regular.woff (updated file)
+[cordova]    copy  www/assets/fonts/roboto-regular.woff2 platforms/android/app/src/main/assets/www/assets/fonts/roboto-regular.woff2 (updated file)
+[cordova]    copy  www/assets/fonts/roboto.scss platforms/android/app/src/main/assets/www/assets/fonts/roboto.scss (updated file)
+[cordova]    copy  www/assets/icon/favicon.ico platforms/android/app/src/main/assets/www/assets/icon/favicon.ico (updated file)
+[cordova]    copy  www/assets/img/about1.jpg platforms/android/app/src/main/assets/www/assets/img/about1.jpg (updated file)
+[cordova]    copy  www/assets/img/building.jpg platforms/android/app/src/main/assets/www/assets/img/building.jpg (updated file)
+[cordova]    copy  www/assets/img/cafe2.jpg platforms/android/app/src/main/assets/www/assets/img/cafe2.jpg (updated file)
+[cordova]    copy  www/assets/img/coffee-people3.jpg platforms/android/app/src/main/assets/www/assets/img/coffee-people3.jpg (updated file)
+[cordova]    copy  www/assets/img/coffee6.jpg platforms/android/app/src/main/assets/www/assets/img/coffee6.jpg (updated file)
+[cordova]    copy  www/assets/img/female1.png platforms/android/app/src/main/assets/www/assets/img/female1.png (updated file)
+[cordova]    copy  www/assets/img/reward.jpg platforms/android/app/src/main/assets/www/assets/img/reward.jpg (updated file)
+[cordova]    copy  www/assets/img/soup1.jpg platforms/android/app/src/main/assets/www/assets/img/soup1.jpg (updated file)
+[cordova]    copy  www/assets/img/wired-brain-coffee-logo.png platforms/android/app/src/main/assets/www/assets/img/wired-brain-coffee-logo.png (updated file)
+[cordova]    copy  www/assets/imgs/logo.png platforms/android/app/src/main/assets/www/assets/imgs/logo.png (updated file)
+[cordova]    copy  www/build/0.js platforms/android/app/src/main/assets/www/build/0.js (updated file)
+[cordova]    copy  www/build/0.js.map platforms/android/app/src/main/assets/www/build/0.js.map (updated file)
+[cordova]    copy  www/build/1.js platforms/android/app/src/main/assets/www/build/1.js (updated file)
+[cordova]    copy  www/build/1.js.map platforms/android/app/src/main/assets/www/build/1.js.map (updated file)
+[cordova]    copy  www/build/2.js platforms/android/app/src/main/assets/www/build/2.js (updated file)
+[cordova]    copy  www/build/2.js.map platforms/android/app/src/main/assets/www/build/2.js.map (updated file)
+[cordova]    copy  www/build/main.css platforms/android/app/src/main/assets/www/build/main.css (updated file)
+[cordova]    copy  www/build/main.css.map platforms/android/app/src/main/assets/www/build/main.css.map (updated file)
+[cordova]    copy  www/build/main.js platforms/android/app/src/main/assets/www/build/main.js (updated file)
+[cordova]    copy  www/build/main.js.map platforms/android/app/src/main/assets/www/build/main.js.map (updated file)
+[cordova]    copy  www/build/polyfills.js platforms/android/app/src/main/assets/www/build/polyfills.js (updated file)
+[cordova]    copy  www/build/sw-toolbox.js platforms/android/app/src/main/assets/www/build/sw-toolbox.js (updated file)
+[cordova]    copy  www/build/vendor.js platforms/android/app/src/main/assets/www/build/vendor.js (updated file)
+[cordova]    copy  www/build/vendor.js.map platforms/android/app/src/main/assets/www/build/vendor.js.map (updated file)
+[cordova]    copy  www/index.html platforms/android/app/src/main/assets/www/index.html (updated file)
+[cordova]    copy  www/manifest.json platforms/android/app/src/main/assets/www/manifest.json (updated file)
+[cordova]    copy  www/service-worker.js platforms/android/app/src/main/assets/www/service-worker.js (updated file)
+[cordova]  Wrote out android application name "Wired Up" to /home/todd/WebDev/Pluralsight/Ionic/ionic-e2e/platforms/android/app/src/main/res/values/strings.xml
+[cordova]  android-versionCode not found in config.xml. Generating a code based on version in config.xml (0.0.1): 1
+[cordova]  Wrote out Android package name "com.ps.ionice2e.android" to /home/todd/WebDev/Pluralsight/Ionic/ionic-e2e/platforms/android/app/src/main/java/com/ps/ionice2e/android/MainActivity.java
+[cordova]  Updating icons at platforms/android/app/src/main/res
+[cordova]  Updating splash screens at platforms/android/app/src/main/res
+[cordova]  This app does not have additional resource files defined
+[cordova]  Prepared android project successfully
+[cordova]  No scripts found for hook "after_prepare".
+[cordova]  ANDROID_HOME=/home/todd/Android/Sdk
+[cordova]  JAVA_HOME=/usr/lib/jvm/java-8-oracle
+[cordova]  studio
+[cordova]  Running command: /home/todd/WebDev/android-studio/gradle/gradle-4.4/bin/gradle -p /home/todd/WebDev/Pluralsight/Ionic/ionic-e2e/platforms/android wrapper -b /home/todd/WebDev/Pluralsight/Ionic/ionic-e2e/platforms/android/wrapper.gradle
+[cordova]  (node:10183) UnhandledPromiseRejectionWarning: Error: spawn EACCES
+[cordova]      at _errnoException (util.js:992:11)
+[cordova]      at ChildProcess.spawn (internal/child_process.js:323:11)
+[cordova]      at Object.exports.spawn (child_process.js:502:9)
+[cordova]      at exports.spawn (/home/todd/WebDev/Pluralsight/Ionic/ionic-e2e/platforms/android/cordova/node_modules/cordova-common/src/superspawn.js:134:31)
+[cordova]      at StudioBuilder.runGradleWrapper (/home/todd/WebDev/Pluralsight/Ionic/ionic-e2e/platforms/android/cordova/lib/builders/StudioBuilder.js:78:16)
+[cordova]      at /home/todd/WebDev/Pluralsight/Ionic/ionic-e2e/platforms/android/cordova/lib/builders/StudioBuilder.js:218:23
+[cordova]      at _fulfilled (/home/todd/WebDev/Pluralsight/Ionic/ionic-e2e/platforms/android/cordova/node_modules/q/q.js:854:54)
+[cordova]      at self.promiseDispatch.done (/home/todd/WebDev/Pluralsight/Ionic/ionic-e2e/platforms/android/cordova/node_modules/q/q.js:883:30)
+[cordova]      at Promise.promise.promiseDispatch (/home/todd/WebDev/Pluralsight/Ionic/ionic-e2e/platforms/android/cordova/node_modules/q/q.js:816:13)
+[cordova]      at /home/todd/WebDev/Pluralsight/Ionic/ionic-e2e/platforms/android/cordova/node_modules/q/q.js:570:49
+[cordova]  (node:10183) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+[cordova]  (node:10183) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[app-scripts] [01:11:04]  lint finished in 2.29 s 

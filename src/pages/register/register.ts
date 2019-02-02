@@ -33,6 +33,7 @@ export class RegisterPage {
     ,public ngFireAuth: AngularFireAuth
     ,public userService: UserServiceProvider
   ) {
+    console.log(`Firebase: ${firebase}`);
   }
 
   ionViewDidLoad() {

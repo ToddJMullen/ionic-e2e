@@ -32,6 +32,7 @@ export class UserServiceProvider {
     ,public rewards: RewardServiceProvider
   ) {
     this.items = ngFireDb.list("/users");
+    console.log(`Firebase: ${firebase}`);
   }
 
 
@@ -131,9 +132,8 @@ export class UserServiceProvider {
             else {//they just logged back in
               this.rewards.rewardsCheck( user, stored )
               .then( rewardedUser => {
-
-                this.updateUser( user, rewardedUser )
-                .then( updated => console.log(`User data updated:`, updated ) )
+                  this.updateUser( user, rewardedUser )
+                  .then( updated => console.log(`User data updated:`, updated ) )
               })
             }
           })

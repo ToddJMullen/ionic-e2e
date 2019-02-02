@@ -10,6 +10,8 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireAuthModule } from  "angularfire2/auth";
 
+// import { FCM } from "@ionic-native/fcm";
+
 import { FIREBASE_ID, FIREBASE_KEY, FIREBASE_SENDER_ID } from "./Keys";
 //services
 import { UserServiceProvider } from '../providers/user-service/user-service';
@@ -54,8 +56,9 @@ export const  firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserServiceProvider
-    ,IonicStorageModule,
-    RewardServiceProvider
+    ,IonicStorageModule
+    ,RewardServiceProvider
+    // ,FCM
   ]
 })
 export class AppModule {}
