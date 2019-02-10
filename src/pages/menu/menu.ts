@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { MenuServiceProvider } from '../../providers/menu-service/menu-service';
 
 /**
  * Generated class for the MenuPage page.
@@ -13,13 +14,42 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-menu',
   templateUrl: 'menu.html',
 })
-export class MenuPage {
+export class MenuPage implements OnInit {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  myCoffee:any[] = [];
+
+  constructor(
+    public navCtrl: NavController
+    ,public navParams: NavParams
+    ,private menuList: MenuServiceProvider
+    ) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MenuPage');
-  }
+  ngOnInit():void{
+    console.log('ngOnInit')
+    this.grabMenu();    
+  }//ngOnInit
+  
+  
+  grabMenu():void{
+    console.log('grabMenu')
+    this.menuList.getCafeDb()
+    .then( coffee => this.myCoffee = coffee );
+  }//grabMenu
+  
+
+  chooseCafe(id):void{
+    console.log('chooseCafe', id )
+  }//chooseCafe
+    
+  
+    
+    
+    
+    
+    
+    
+    
 
 }
