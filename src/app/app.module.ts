@@ -19,6 +19,7 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { RewardServiceProvider } from '../providers/reward-service/reward-service';
+
 import { RewardModalPageModule } from '../pages/reward-modal/reward-modal.module';
 
 

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Storage } from "@ionic/storage";
 
 import "rxjs/add/operator/map";
-// import { Promise } from "promise-polyfill";
+// import Promise from "promise-polyfill";
 
 import { ModalController } from 'ionic-angular';
 import { RewardModalPage } from "../../pages/reward-modal/reward-modal"; 
@@ -17,6 +17,8 @@ import { RewardModalPage } from "../../pages/reward-modal/reward-modal";
 */
 @Injectable()
 export class RewardServiceProvider {
+
+  REWARD_MOD = 2;
 
   rewards:any[] = [];
 
@@ -42,7 +44,7 @@ export class RewardServiceProvider {
         userData.rewardCount = firstRewards;
         resolve( userData );
       }
-      else if( userData.logins % 7 == 0 ){
+      else if( userData.logins % this.REWARD_MOD == 0 ){
         let newRewards = this.rewardChance( user, userData.rewardCount );
         userData.rewardCount = newRewards;
         resolve( userData );
@@ -104,8 +106,8 @@ export class RewardServiceProvider {
   }
 
   displayReward( amount ){
-    console.log(`Reward ${amount}`)
-    let theModal = this.modalCtrl.create( RewardModalPage, {"rewardParam": amount} );
+    console.log(`displayReward() Reward ${amount}`)
+    let theModal = this.modalCtrl.create( RewardModalPage, {"rewardParam": amount}/* << data passed to nav page */ );
     theModal.present();
   }
 

@@ -26,10 +26,10 @@ export class UserServiceProvider {
 
   constructor(
     public alertCtrl: AlertController
-    ,public ngFireAuth: AngularFireAuth
-    ,public storage: Storage
-    ,public ngFireDb: AngularFireDatabase
-    ,public rewards: RewardServiceProvider
+    ,private ngFireAuth: AngularFireAuth
+    ,private storage: Storage
+    ,private ngFireDb: AngularFireDatabase
+    ,private rewards: RewardServiceProvider
   ) {
     this.items = ngFireDb.list("/users");
     console.log(`Firebase: ${firebase}`);
@@ -44,18 +44,8 @@ export class UserServiceProvider {
       ,buttons: ["OK"]
     });
     theAlert.present();
-  }
+  }//displayAlert
 
-
-  logout(){
-    //this.storageControl("delete");
-    this.ngFireAuth.auth.signOut()
-    .then( rsp => {
-      this.displayAlert("You have been logged out.", "Where you going?");
-      this.success = false;
-    } )
-    .catch( err => console.error("UserService::logout().catch()", err) );
-  }
 
   storageControl( action, key?, value? ){
     //??dexi?? as a potentially better/more powerful solution
@@ -75,7 +65,7 @@ export class UserServiceProvider {
         this.storage.remove( key );
       }
     }
-  }
+  }//storageControl
 
 
   saveNewUser( user ){
@@ -100,7 +90,7 @@ export class UserServiceProvider {
     })
     ;
     return this.storageControl("get", user );//needed to prevent errors when method chaining
-  }
+  }//saveNewUser
 
 
   updateUser( user, userData ){
@@ -117,7 +107,7 @@ export class UserServiceProvider {
       ,lastLogin: newData.lastLogin
     });
     return this.storageControl("set", user, newData );
-  }
+  }//updateUser
 
 
   login( user, password ){
@@ -145,7 +135,19 @@ export class UserServiceProvider {
         this.displayAlert("Login Error", String(err) );
         return err;
       })
-  }
+  }//login
+
+
+  logout(){
+    //this.storageControl("delete");
+    this.ngFireAuth.auth.signOut()
+    .then( rsp => {
+      this.displayAlert("You have been logged out.", "Where you going?");
+      this.success = false;
+    } )
+    .catch( err => console.error("UserService::logout().catch()", err) );
+  }//logout
+
 
 
 }

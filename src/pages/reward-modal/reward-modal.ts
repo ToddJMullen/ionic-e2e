@@ -19,7 +19,7 @@ export class RewardModalPage {
 
   constructor(
     public navCtrl: NavController
-    ,public navParams: NavParams
+    ,public navParams: NavParams//used to ref passed in data
     ,public viewCtrl: ViewController
   ) {
 

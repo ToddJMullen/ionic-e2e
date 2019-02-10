@@ -27,30 +27,45 @@ export class HomePage implements OnInit {
     ,public ngFireAuth: AngularFireAuth
     ,public userService: UserServiceProvider
     // ,public fcm:FCM
-  ) {  }
+  ) {
+      //video shows these methods in constructor, but I had them in ngOnInit()
+      //not sure if that was causing the promise error???
+      this.loginPage = "LoginPage";
+
+      this.ngFireAuth.auth.onAuthStateChanged( creds => {
+        if( creds ){
+          this.loggedIn = this.userService.user = creds.email;
+        }
+      });
+      // this.initFcm();
+
+    }
 
   ngOnInit(){
+    //these were accidentally put in this method, not contructor?
+    // this.loginPage = "LoginPage";
 
-    this.loginPage = "LoginPage";
-
-    this.ngFireAuth.auth.onAuthStateChanged( creds => {
-      if( creds ){
-        this.loggedIn = this.userService.user = creds.email;
-      }
-    });
-    // this.initFcm();
+    // this.ngFireAuth.auth.onAuthStateChanged( creds => {
+    //   if( creds ){
+    //     this.loggedIn = this.userService.user = creds.email;
+    //   }
+    // });
+    // // this.initFcm();
   }
 
 
   myPagePush(page){
+    console.log('myPagePush()', page );
+    
     this.navCtrl.push( page )
     .then( result => {
-      if( !result ){
+      if( !result ){//nothing is returned if they can't access the page
         this.userService.displayAlert("Sorry","You must be logged to access this page.")
       }
     })
   }
-
+  
+  
   // initFcm(){
   //   this.fcm.onNotification().subscribe( data => {
   //     if( data.wasTapped ){
