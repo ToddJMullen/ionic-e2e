@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+// import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 /*
@@ -10,7 +10,9 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class MenuServiceProvider {
 
-  constructor(public http: HttpClient) {
+  constructor(
+    // public http: HttpClient
+    ) {
     console.log('Hello MenuServiceProvider Provider');
   }
 
