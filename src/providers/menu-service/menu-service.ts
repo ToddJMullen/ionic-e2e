@@ -46,6 +46,12 @@ export class MenuServiceProvider {
   }//getCafeDb
     
     
-
+  getOne(search):Promise<any>{
+    console.log('getOne', search )
+    let single =  this.cafe.filter( item => item.id === search );
+    return Promise.resolve( single )
+  }//getOne
+    
+    
 
 }
