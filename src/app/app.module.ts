@@ -10,10 +10,11 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireAuthModule } from  "angularfire2/auth";
 
-// import { FCM } from "@ionic-native/fcm";
 
 import { FIREBASE_ID, FIREBASE_KEY, FIREBASE_SENDER_ID } from "./Keys";
 //services
+// import { FCM } from "@ionic-native/fcm";
+// ^^^ commented out due to dependency not supported by ionic serve
 import { UserServiceProvider } from '../providers/user-service/user-service';
 //pages
 import { MyApp } from './app.component';
@@ -59,7 +60,7 @@ export const  firebaseConfig = {
     UserServiceProvider
     ,IonicStorageModule
     ,RewardServiceProvider
-    // ,FCM
+    // ,FCM// commented out due to dependency not supported by ionic serve
   ]
 })
 export class AppModule {}

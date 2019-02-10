@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 // import { FCM } from '@ionic-native/fcm';
+// ^^^ commented out due to dependency not supported by ionic serve
 
 
 import { UserServiceProvider } from '../../providers/user-service/user-service';
@@ -26,7 +27,7 @@ export class HomePage implements OnInit {
     public navCtrl: NavController
     ,public ngFireAuth: AngularFireAuth
     ,public userService: UserServiceProvider
-    // ,public fcm:FCM
+    // ,public fcm:FCM// commented out due to dependency not supported by ionic serve
   ) {
       //video shows these methods in constructor, but I had them in ngOnInit()
       //not sure if that was causing the promise error???
@@ -42,7 +43,11 @@ export class HomePage implements OnInit {
     }
 
   ngOnInit(){
-    //these were accidentally put in this method, not contructor?
+    //Note 1: these were accidentally put in this method, not contructor?
+    //Note 2: They were shown in contructor in a previous video
+    //, but in "Configure the Rewards... > Configuring Push Notification" they're shown in ngOnInit()
+    //I caught no mention of moving the implementations
+
     // this.loginPage = "LoginPage";
 
     // this.ngFireAuth.auth.onAuthStateChanged( creds => {
@@ -65,21 +70,21 @@ export class HomePage implements OnInit {
     })
   }
   
-  
-  // initFcm(){
-  //   this.fcm.onNotification().subscribe( data => {
-  //     if( data.wasTapped ){
-  //       console.log(`Tray notification tap data:`, data );
-  //     }
-  //     else {
-  //       console.log(`Notification data while in app:`, data );
-  //       this.userService.displayAlert( "Sent", String(data) );
-  //     }
-  //   }
-  //   , err => {
-  //     console.error(`Problem in initFcm()`, err );
-  //   });
-  // }
+  // commented out due to dependency not supported by ionic serve
+  /*initFcm(){
+    this.fcm.onNotification().subscribe( data => {
+      if( data.wasTapped ){
+        console.log(`Tray notification tap data:`, data );
+      }
+      else {
+        console.log(`Notification data while in app:`, data );
+        this.userService.displayAlert( "Sent", String(data) );
+      }
+    }
+    , err => {
+      console.error(`Problem in initFcm()`, err );
+    });
+  }*/
 
   logout(){
     this.userService.logout();
