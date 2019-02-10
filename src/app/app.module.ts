@@ -19,6 +19,8 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
 //pages
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+// import { AboutPage } from '../pages/about/about';
+// import { LocationsPage } from '../pages/locations/locations';
 import { RewardServiceProvider } from '../providers/reward-service/reward-service';
 
 import { RewardModalPageModule } from '../pages/reward-modal/reward-modal.module';
@@ -37,7 +39,9 @@ export const  firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    // AboutPage,
+    // LocationsPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,9 @@ export const  firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    // AboutPage,
+    // LocationsPage
   ],
   providers: [
     StatusBar,
