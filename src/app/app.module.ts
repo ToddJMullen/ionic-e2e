@@ -25,6 +25,7 @@ import { RewardServiceProvider } from '../providers/reward-service/reward-servic
 
 import { RewardModalPageModule } from '../pages/reward-modal/reward-modal.module';
 import { MenuServiceProvider } from '../providers/menu-service/menu-service';
+import { CartServiceProvider } from '../providers/cart-service/cart-service';
 
 
 
@@ -67,7 +68,8 @@ export const  firebaseConfig = {
     UserServiceProvider
     ,IonicStorageModule
     ,RewardServiceProvider,
-    MenuServiceProvider
+    MenuServiceProvider,
+    CartServiceProvider
     // ,FCM// commented out due to dependency not supported by ionic serve
   ]
 })
