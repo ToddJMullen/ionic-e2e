@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MenuServiceProvider } from '../../providers/menu-service/menu-service';
+import { CartServiceProvider } from '../../providers/cart-service/cart-service';
+import { UserServiceProvider } from '../../providers/user-service/user-service';
 
 /**
  * Generated class for the MenuDetailPage page.
@@ -30,12 +32,15 @@ export class MenuDetailPage implements OnInit {
     ,price:0
     ,milk:"none"
     ,whip:"none"
+    ,orderId: ""
   }
 
   constructor(
     public navCtrl: NavController
     ,public navParams: NavParams
     ,private menuList: MenuServiceProvider
+    ,private cartSvc: CartServiceProvider
+    ,private userSvc: UserServiceProvider
   ) {
   }
 
@@ -63,6 +68,10 @@ export class MenuDetailPage implements OnInit {
 
   addToCart():void{
     console.log('addToCart');
+    if( !this.userSvc.success ){
+      this.userSvc.displayAlert(`Cannot Add`, `You must register before you can order.`);
+      return;//no coffee for you!
+    }
     //I don't like this, refactor to switch() once tutorial confirmed/complete
     if( this.theCoffee.price === this.theCoffee.small ){
       this.theCoffee.size = "small";
@@ -73,6 +82,11 @@ export class MenuDetailPage implements OnInit {
     else{
       this.theCoffee.size = "large";
     }
+    this.theCoffee.price = Number(this.theCoffee.price);//recast to number to counter string value of select
+
+    this.cartSvc.addItem( this.theCoffee );
+    this.userSvc.displayAlert(`${this.theCoffee.size} ${this.theCoffee.name}`, `Added to Cart`);
+
     console.log('addToCart() got:', this.theCoffee );
     
   }//addToCart
