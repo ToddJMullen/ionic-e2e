@@ -7,12 +7,42 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>checkout</ion-title>
+    <ion-title>Checkout</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="checkOut">
+
+  <ion-row>
+    <h1>{{customer}}</h1>
+  </ion-row>
+
+  <ion-row *ngFor="let item of order" >
+    <ion-col col-6 >
+      <h1>{{item.size}} {{item.name}} w/{{item.milk}} Milk, &amp; {{item.whip}} Whipped Cream </h1>
+    </ion-col>
+    
+    <ion-col col-4 >
+      <h1>{{item.price | currency:'USD':true}}</h1>
+    </ion-col>
+    
+    <ion-col col-2 >
+      <button ion-button icon-only
+      (click)="removeOne(item.id, item.price)" >
+        <ion-icon name='remove-circle' ></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>  
+
+  <div *ngIf="!orderTotal">
+    <h1>You have no items in your cart. Go to the Menu to add items.</h1>
+  </div>
+
+  <ion-row class="my-border" >
+    <h2>Total: {{orderTotal | currency:'USD':true}}</h2>
+  </ion-row>
+
 
 </ion-content>

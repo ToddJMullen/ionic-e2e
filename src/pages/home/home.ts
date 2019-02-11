@@ -23,6 +23,8 @@ export class HomePage implements OnInit {
   loginPage:any;
   loggedIn:string;
 
+  checkOut: any;
+
   constructor(
     public navCtrl: NavController
     ,public ngFireAuth: AngularFireAuth
@@ -32,6 +34,7 @@ export class HomePage implements OnInit {
       //video shows these methods in constructor, but I had them in ngOnInit()
       //not sure if that was causing the promise error???
       this.loginPage = "LoginPage";
+      this.checkOut = "CheckoutPage";
 
       this.ngFireAuth.auth.onAuthStateChanged( creds => {
         if( creds ){

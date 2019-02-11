@@ -26,11 +26,15 @@ export class CartServiceProvider {
 
   addItem(myItem):void{
     console.log('addItem', myItem );
+    //the order ID/key should be extracted into a reusable method for consistency
+    myItem.orderId = `${myItem.id}-${myItem.price}`;
     this.theCart.push(myItem);
   }//addItem
-
+  
+  
   removeItem(id, price):void{
     console.log('removeItem', id, price );
+    //the order ID/key should be extracted into a reusable method for consistency
     let tmpId = `${id}-${price}`;
     let idx = this.theCart.map( i => i.orderId ).indexOf(tmpId);
     if( idx > -1 ){
