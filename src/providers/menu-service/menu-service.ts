@@ -48,7 +48,7 @@ export class MenuServiceProvider {
     
   getOne(search):Promise<any>{
     console.log('getOne', search )
-    let single =  this.cafe.filter( item => item.id === search );
+    let single =  this.cafe.filter( item => item.id === search ).pop();
     return Promise.resolve( single )
   }//getOne
     
