@@ -35,6 +35,14 @@ export class UserServiceProvider {
     console.log(`Firebase: ${firebase}`);
   }
 
+  
+  returnUser():Promise<any>{
+    console.log('returnUser');
+    return Promise.resolve(this.user);
+  }//returnUser
+    
+    
+
 
 
   displayAlert( title:string, msg:string ){

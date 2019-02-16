@@ -21,6 +21,17 @@ export class CheckoutPage implements OnInit {
   orderTotal: number;
   customer: any;
 
+
+  rewardsDisplay:boolean;
+  discountUsed:boolean;
+
+  rewardList:any[];
+  discount:any;
+
+  discountAmount:number = 0;
+  discountTotal:number = 0;
+
+
   constructor(
     public navCtrl: NavController
     ,public navParams: NavParams
@@ -35,13 +46,68 @@ export class CheckoutPage implements OnInit {
 
   ngOnInit():void{
     console.log('ngOnInit');
-    this.userSvc.user = this.customer;
+    // this.userSvc.user = this.customer;//he says this isn't working anyway?
     this.cartSvc.getCart()
       .then( theCart => this.order = theCart )
       .then( cart => this.sumTotal(cart) )
       .then( sum => this.orderTotal = sum )
+      .then( cash => this.userSvc.returnUser() )
+      .then( user => this.loadRewards(user) )
     ;
   }//ngOnInit
+    
+
+  	
+  addRewards():void{
+    console.log('addRewards');
+    this.rewardsDisplay = !this.rewardsDisplay;
+  }//addRewards
+    
+  
+  	
+  loadRewards(user):void{
+    console.log('loadRewards', user );
+    this.userSvc
+    .storageControl("get",`${user}-rewards`)
+    .then(rewards => {
+        console.log(`loadRewards ${user} found:`, rewards );
+          this.customer = user;
+          if( !rewards ){
+            let tempObj = {rewardId: "No rewards Generated", amount: 0};
+            this.rewardList.push( tempObj );
+          }
+          else {
+            this.rewardList = rewards;
+          }
+        })
+  }//loadRewards
+
+
+  	
+  applyReward(reward):void{
+    console.log('applyReward', reward );
+    let tempAmt = this.orderTotal - reward.amount;
+
+    if( tempAmt <= 0 ){
+      this.userSvc.displayAlert("Unable to Apply","You cannot use rewards that create a credit");
+    }
+    else {
+      this.discount = reward;
+      this.discountAmount = reward.amount;
+      this.discountTotal = this.orderTotal - reward.amount;
+      this.discountUsed = true;
+    }
+  }//applyReward
+
+  
+  	
+  removeReward():void{
+    console.log('removeReward');
+    this.discount = '';
+    this.discountUsed = false;
+  }//removeReward
+    
+    
     
 
   sumTotal(order:any[]):Promise<any>{
@@ -51,11 +117,24 @@ export class CheckoutPage implements OnInit {
     );
   }//sumTotal
     
+
+
+
   removeOne( itemId, itemPrice ):void{
     console.log('removeOne',  itemId, itemPrice  );
-    this.cartSvc.removeItem( itemId, itemPrice );
-    this.sumTotal( this.order )
-        .then( sum => this.orderTotal = sum );
+    if( this.discountTotal != 0 ){
+      let tempAmt = this.discountAmount - itemPrice;
+      if( tempAmt <=0 ){
+        this.userSvc.displayAlert(`Unable to apply`, `You cannot use rewards that create a credit.`);
+      }
+    }
+    else {
+      this.cartSvc.removeItem( itemId, itemPrice );
+      this.sumTotal( this.order )
+      .then( sum => this.orderTotal = sum )
+      .then( discount => this.discountTotal = discount - this.discount.amount )
+      ;
+    }
   }//removeOne
     
         
