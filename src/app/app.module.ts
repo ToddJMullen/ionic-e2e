@@ -10,12 +10,12 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireAuthModule } from  "angularfire2/auth";
 
-import { PayPal } from "@ionic-native/paypal";
+import { PayPalOriginal } from "@ionic-native/paypal";
 
 
-import { FIREBASE_ID, FIREBASE_KEY, FIREBASE_SENDER_ID, PAYPAL_SANDBOX_CLIENT_ID } from "./Keys";
+import { FIREBASE_ID, FIREBASE_KEY, FIREBASE_SENDER_ID } from "./Keys";
 //services
-// import { FCM } from "@ionic-native/fcm";
+import { FCM } from "@ionic-native/fcm";
 // ^^^ commented out due to dependency not supported by ionic serve
 import { UserServiceProvider } from '../providers/user-service/user-service';
 //pages
@@ -72,8 +72,8 @@ export const  firebaseConfig = {
     ,RewardServiceProvider,
     MenuServiceProvider,
     CartServiceProvider
-    ,PayPal
-    // ,FCM// commented out due to dependency not supported by ionic serve
+    ,PayPalOriginal
+    ,FCM// commented out due to dependency not supported by ionic serve
   ]
 })
 export class AppModule {}

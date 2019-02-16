@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
-// import { FCM } from '@ionic-native/fcm';
+import { FCM } from '@ionic-native/fcm';
 // ^^^ commented out due to dependency not supported by ionic serve
 
 
@@ -29,7 +29,7 @@ export class HomePage implements OnInit {
     public navCtrl: NavController
     ,public ngFireAuth: AngularFireAuth
     ,public userService: UserServiceProvider
-    // ,public fcm:FCM// commented out due to dependency not supported by ionic serve
+    ,public fcm:FCM// commented out due to dependency not supported by ionic serve
   ) {
       //video shows these methods in constructor, but I had them in ngOnInit()
       //not sure if that was causing the promise error???
@@ -41,7 +41,7 @@ export class HomePage implements OnInit {
           this.loggedIn = this.userService.user = creds.email;
         }
       });
-      // this.initFcm();
+      this.initFcm();
 
     }
 
@@ -74,7 +74,7 @@ export class HomePage implements OnInit {
   }
   
   // commented out due to dependency not supported by ionic serve
-  /*initFcm(){
+  initFcm(){
     this.fcm.onNotification().subscribe( data => {
       if( data.wasTapped ){
         console.log(`Tray notification tap data:`, data );
@@ -87,7 +87,7 @@ export class HomePage implements OnInit {
     , err => {
       console.error(`Problem in initFcm()`, err );
     });
-  }*/
+  }
 
   logout(){
     this.userService.logout();

@@ -43,6 +43,13 @@ export class CartServiceProvider {
     }
   }//removeItem
     
+  
+  	
+  emptyCart():void{
+    console.log('emptyCart');
+    this.theCart = [];
+  }//emptyCart
+    
     
     
     

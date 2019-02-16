@@ -31,7 +31,7 @@ export class UserServiceProvider {
     ,private ngFireDb: AngularFireDatabase
     ,private rewards: RewardServiceProvider
   ) {
-    this.items = ngFireDb.list("/users");
+    this.items = this.ngFireDb.list("/users");
     console.log(`Firebase: ${firebase}`);
   }
 

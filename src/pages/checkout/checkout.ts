@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PayPalOriginal, PayPalConfiguration, PayPalPayment } from "@ionic-native/paypal";
+
 import { CartServiceProvider } from '../../providers/cart-service/cart-service';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
+// import { RewardServiceProvider } from '../../providers/reward-service/reward-service';
+import { HomePage } from '../home/home';
+import { PAYPAL_SANDBOX_CLIENT_ID, PAYPAL_PRODUCTION_CLIENT_ID } from '../../app/Keys';
 
 /**
  * Generated class for the CheckoutPage page.
@@ -37,6 +42,7 @@ export class CheckoutPage implements OnInit {
     ,public navParams: NavParams
     ,private cartSvc:CartServiceProvider
     ,private userSvc:UserServiceProvider
+    ,private payPal:PayPalOriginal
   ) {
   }
 
@@ -137,7 +143,60 @@ export class CheckoutPage implements OnInit {
     }
   }//removeOne
     
-        
+  	
+  purchase():void{
+    console.log('purchase');
+    if( this.discountUsed ){
+      let tmpId = this.discount.rewardId;
+      this.rewardList = this.rewardList.filter( reward => reward.rewardId != tmpId );
+      console.log(`purchase() filtered ${tmpId} from reward list:`, this.rewardList );
+      this.userSvc.storageControl("set", `${this.customer}-rewards`)
+          .then( result => console.log('Save result:', result ) );
+      this.payCart( this.discountTotal );
+      this.cartSvc.emptyCart();
+      this.userSvc.displayAlert(`Congratulations`,`Your order for ${this.discountTotal} is paid and coffee has been catapulted at you!`);
+      this.navCtrl.push( HomePage );
+      
+    }
+    else {
+      this.payCart( this.orderTotal );
+      this.cartSvc.emptyCart();
+      this.userSvc.displayAlert(`Congratulations`,`Your order for ${this.orderTotal} is paid and coffee has been catapulted at you!`);
+      this.navCtrl.push( HomePage );
+
+    }
+
+  }//purchase
+
+  	
+  payCart(amt):void{
+    console.log('payCart', amt );
+    this.payPal.init({
+      PayPalEnvironmentProduction: PAYPAL_PRODUCTION_CLIENT_ID
+      ,PayPalEnvironmentSandbox: PAYPAL_SANDBOX_CLIENT_ID
+    }).then( () => {
+      this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
+        //no special config needed
+      })).then(() => {
+        let payment = new PayPalPayment(amt, 'USD','Buying Coffee Description...','sale');
+        this.payPal.renderSinglePaymentUI(payment)
+            .then( ppRsp => {
+              console.log(`PayPal payment response:`, ppRsp );
+              
+            }, payErr => {
+              console.error(`PayPal::renderSinglePaymentUI() error:`, payErr );
+            })
+      }, renderErr => {
+        console.error(`PayPal::prepareToRender() error:`, renderErr );
+      })
+    }, initErr => {
+      console.error(`PayPal::init() error:`, initErr );
+    })
+  }//payCart
+    
+    
+    
+    
     
 
 }
