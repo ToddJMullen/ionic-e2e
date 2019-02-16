@@ -1,14 +1,44 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+    <ion-toolbar color="light">
+      <img src="assets/img/wired-brain-coffee-logo.png" class="logo">
+    </ion-toolbar>
+
+    <ion-toolbar *ngIf="!loggedIn" color="secondary">
+      <button [navPush]="loginPage" ion-button clear>Login</button>
+    </ion-toolbar>
+
+    <ion-toolbar *ngIf="loggedIn" color="secondary">
+
+      <button ion-button outline small clear icon-left
+        (click)=myPagePush(checkOut) >
+        <ion-icon name='cart' ></ion-icon>
+        Checkout
+      </button>
+      <button ion-button icon-left clear small>
+        <ion-icon name="contact"></ion-icon>
+        Welcome {{loggedIn}}
+      </button>
+      <button ion-button outline small icon-left clear
+        (click)=signOff() >
+        <ion-icon name='close-circle' ></ion-icon>
+        Sign Out
+      </button>
+      
+
+      
+      <button (click)="logout()" ion-button outline small >Log Out</button>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+<ion-content>
+
+  <ion-list *ngFor="let menu of menuData" >
+    <ion-card>
+      <img src="{{menu.pic}}" alt="{{menu.title}}">
+      <div class="card-title" 
+          (click)="myPagePush(menu.pushPage)" >{{menu.title}}</div>
+    </ion-card>
+  </ion-list>
+
 </ion-content>

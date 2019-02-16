@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "884659903115",
+    "firebase_url": "https://ps-wired.firebaseio.com",
+    "project_id": "ps-wired",
+    "storage_bucket": "ps-wired.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884659903115:android:c5a51d310dfc28dd",
+        "android_client_info": {
+          "package_name": "com.ps.ionice2e.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884659903115-gs40o5oihst57mf14jmddrffvifooh2a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiEg34AaQB-a8aL0lFrAE7-_HdDE2Bb3c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
